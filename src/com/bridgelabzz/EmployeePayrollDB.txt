@@ -68,7 +68,6 @@ mysql> select salary from employee_payroll where name = 'Bill';
 | 1000000 |
 +---------+
 1 row in set (0.00 sec)
-
 mysql> select start_date from employee_payroll where start_date between cast('2018-01-01' as date) and date(now());
 +------------+
 | start_date |

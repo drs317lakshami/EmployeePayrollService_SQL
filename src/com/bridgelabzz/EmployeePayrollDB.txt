@@ -1,10 +1,10 @@
 UC1-Create a payroll service database
 
 mysql> create database payroll_service;
-Query OK, 1 row affected (0.51 sec)
+Query OK, 1 row affected  (0.51 sec)
 
 mysql> show databases;
-+---------------------+
++---------------------+ 
 | Database            |
 +---------------------+
 | addressbook_service |

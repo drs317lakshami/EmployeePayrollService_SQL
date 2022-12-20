@@ -1,4 +1,4 @@
-#UC1_Create_database
+UC1-Create a payroll service database
 
 mysql> create database payroll_service;
 Query OK, 1 row affected (0.51 sec)
@@ -20,3 +20,24 @@ mysql> show databases;
 
 mysql> use payroll_service;
 Database changed
+
+UC2-Create employee payroll table in payroll service database
+
+mysql> create table employee_payroll(
+    -> id int unsigned not null auto_increment,
+    -> name varchar(30) not null,
+    -> salary double not null,
+    -> start_date date not null,
+    -> primary key(id));
+Query OK, 0 rows affected (1.27 sec)
+
+mysql> desc employee_payroll;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int unsigned | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(30)  | NO   |     | NULL    |                |
+| salary     | double       | NO   |     | NULL    |                |
+| start_date | date         | NO   |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.31 sec)

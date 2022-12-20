@@ -1,10 +1,10 @@
 UC1-Create a payroll service database
 
 mysql> create database payroll_service;
-Query OK, 1 row affected (0.51 sec)
+Query OK, 1 row affected  (0.51 sec)
 
 mysql> show databases;
-+---------------------+
++---------------------+ 
 | Database            |
 +---------------------+
 | addressbook_service |
@@ -61,13 +61,21 @@ mysql> select * from employee_payroll;
 3 rows in set (0.01 sec)
 UC5-Retrieve salary data for particular employee as wll as employees particular data range
 
+<<<<<<< HEAD
 mysql> select salary from employee_payroll where name = 'Bill';
+=======
+mysql> select salary from employee_payroll_new where name = 'Bill';
+>>>>>>> UC6_Add_gender_into_table_and_update
 +---------+
 | salary  |
 +---------+
 | 1000000 |
 +---------+
 1 row in set (0.00 sec)
+<<<<<<< HEAD
+=======
+
+>>>>>>> UC6_Add_gender_into_table_and_update
 mysql> select start_date from employee_payroll where start_date between cast('2018-01-01' as date) and date(now());
 +------------+
 | start_date |
@@ -76,3 +84,40 @@ mysql> select start_date from employee_payroll where start_date between cast('20
 | 2020-05-21 |
 +------------+
 2 rows in set (0.04 sec)
+<<<<<<< HEAD
+=======
+
+UC6-Add gender to employee payroll table and update rows to reflect correct employee gender
+
+mysql> alter table employee_payroll add gender varchar(1) after name;
+Query OK, 0 rows affected (0.36 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+---------+--------+---------+------------+
+| id | name    | gender | salary  | start_date |
++----+---------+--------+---------+------------+
+|  1 | Bill    | NULL   | 1000000 | 2010-10-30 |
+|  2 | Tersia  | NULL   | 2000000 | 2019-11-13 |
+|  3 | Charlie | NULL   |  300000 | 2020-05-21 |
++----+---------+--------+---------+------------+
+3 rows in set (0.00 sec)
+
+mysql> update employee_payroll set gender = 'M'  where name = 'Bill' or  name = 'Charlie';
+Query OK, 2 rows affected (0.08 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update employee_payroll set gender = 'F'  where name = 'Tersia';
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+---------+--------+---------+------------+
+| id | name    | gender | salary  | start_date |
++----+---------+--------+---------+------------+
+|  1 | Bill    | M      | 1000000 | 2010-10-30 |
+|  2 | Tersia  | F      | 2000000 | 2019-11-13 |
+|  3 | Charlie | M      |  300000 | 2020-05-21 |
++----+---------+--------+---------+------------+
+3 rows in set (0.00 sec)
+>>>>>>> UC6_Add_gender_into_table_and_update
